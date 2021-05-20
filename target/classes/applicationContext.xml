@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:property-placeholder location="classpath:vehicle.properties" />
+
+  <bean id="vehicleBean"
+    class="org.example.Motorcycle">
+    <property name = "make" value="${vehicle.make}"/>
+    <property name = "year" value="${vehicle.year}"/>
+  </bean>
+
+  <bean id = "vehicleFactoryBean" class="org.example.VehicleFactory">
+    <constructor-arg ref="vehicleBean" />
+  </bean>
+
+</beans>
