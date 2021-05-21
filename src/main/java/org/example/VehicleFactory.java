@@ -1,9 +1,17 @@
 package org.example;
 
-public class VehicleFactory {
-  Vehicle vehicle;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-  public VehicleFactory(Vehicle vehicle) {
+@Component
+public class VehicleFactory {
+
+
+  private Vehicle vehicle;
+
+  @Autowired
+  public VehicleFactory( @Qualifier("helicopter") Vehicle vehicle) {
     this.vehicle = vehicle;
   }
 

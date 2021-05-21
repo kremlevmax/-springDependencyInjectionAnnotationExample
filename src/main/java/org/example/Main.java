@@ -13,7 +13,11 @@ public class Main {
 //    VehicleFactory vehicleFactory = new VehicleFactory(vehicleBean);
 //    vehicleFactory.createVehicle();
 
-    VehicleFactory vehicleFactory = context.getBean("vehicleFactoryBean", VehicleFactory.class);
+//    VehicleFactory vehicleFactory = context.getBean("vehicleFactoryBean", VehicleFactory.class);
+//    vehicleFactory.createVehicle();
+
+
+    VehicleFactory vehicleFactory = context.getBean("vehicleFactory", VehicleFactory.class);
     vehicleFactory.createVehicle();
     context.close();
   }

@@ -1,12 +1,17 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car implements Vehicle {
 
+  @Value("${vehicle.make}")
   private String make;
+  @Value("${vehicle.year}")
   private int year;
 
-  public Car(String make) {
-    this.make = make;
+  public Car() {
   }
 
   public String getMake() {

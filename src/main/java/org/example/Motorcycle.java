@@ -1,12 +1,14 @@
 package org.example;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Motorcycle implements Vehicle {
-  private String make;
-  private int year;
 
-  public Motorcycle(String make) {
-    this.make = make;
-  }
+  @Value("${vehicle.make}")
+  private String make;
+  @Value("${vehicle.year}")
+  private int year;
 
   public Motorcycle() {
   }
@@ -19,11 +21,6 @@ public class Motorcycle implements Vehicle {
     this.make = make;
   }
 
-  @Override
-  public String getVehicleType() {
-    return "Motorcycle";
-  }
-
   public int getYear() {
     return year;
   }
@@ -31,4 +28,11 @@ public class Motorcycle implements Vehicle {
   public void setYear(int year) {
     this.year = year;
   }
+
+  @Override
+  public String getVehicleType() {
+    return "Motorcycle";
+  }
+
+
 }
